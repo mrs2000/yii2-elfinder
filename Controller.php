@@ -27,6 +27,8 @@ use yii\web\JsExpression;
 class Controller extends BaseController{
     public $roots = [];
     public $access = ['@'];
+    public $bind = [];
+    public $uploadMaxSize = null;
     public $disabledCommands = ['netmount'];
 
     public function behaviors()
@@ -68,6 +70,15 @@ class Controller extends BaseController{
             if($root->isAvailable())
                 $this->_options['roots'][] = $root->getRoot();
         }
+
+        foreach ($this->bind as $handler => $bind) {
+            if (isset($bind[0]) && isset($bind[1]))
+                $this->bind[$handler] = [new $bind[0], $bind[1]];
+        }
+        $this->_options['bind'] = $this->bind;
+
+        if($this->uploadMaxSize)
+            $this->_options['uploadMaxSize'] = $this->uploadMaxSize;
 
         return $this->_options;
     }
