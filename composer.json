@@ -14,7 +14,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"mrs2000\\elfinder\\": ""}
+        "psr-4": {"mihaildev\\elfinder\\": ""}
     },
     "require": {
         "yiisoft/yii2-jui": "*"
