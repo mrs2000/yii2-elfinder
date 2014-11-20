@@ -1,8 +1,8 @@
 {
-    "name": "mihaildev/yii2-elfinder",
+    "name": "mrs2000/yii2-elfinder",
     "keywords": ["yii", "elfinder", "filemanager"],
     "description": "Yii2 ElFinder",
-    "homepage": "https://github.com/MihailDev/yii2-elfinder",
+    "homepage": "https://github.com/mrs2000/yii2-elfinder",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
@@ -14,7 +14,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"mihaildev\\elfinder\\": ""}
+        "psr-4": {"mrs2000\\elfinder\\": ""}
     },
     "require": {
         "yiisoft/yii2-jui": "*"
