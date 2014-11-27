@@ -72,8 +72,13 @@ class Controller extends BaseController{
         }
 
         foreach ($this->bind as $handler => $bind) {
-            if (isset($bind[0]) && isset($bind[1]))
-                $this->bind[$handler] = [new $bind[0], $bind[1]];
+            $obj = new $bind['class'];
+            foreach ($bind as $field => $value) {
+                if (!($field == 'class' || $field == 'action')) {
+                    $obj->{$field} = $value;
+                }
+            }
+            $this->bind[$handler] = [$obj, $bind['action']];
         }
         $this->_options['bind'] = $this->bind;
 
