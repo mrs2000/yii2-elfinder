@@ -15,6 +15,8 @@ class LocalPath extends BasePath{
 
     public $name = 'Root';
 
+    public $uploadMaxSize = 0;
+
     public $options = [];
 
     public $access = ['read' => '*', 'write' => '*'];
@@ -37,6 +39,7 @@ class LocalPath extends BasePath{
         $options['URL'] = $this->getUrl();
         $options['defaults'] = $this->getDefaults();
         $options['alias'] = $this->getAlias();
+        $options['uploadMaxSize'] = $this->uploadMaxSize;
         $options['mimeDetect'] = 'internal';
         //$options['onlyMimes'] = ['image'];
         $options['imgLib'] = 'gd';
