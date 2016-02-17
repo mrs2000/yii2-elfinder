@@ -39,7 +39,7 @@ class ElFinder extends BaseWidjet{
         return ArrayHelper::merge([
             'filebrowserBrowseUrl' => self::getManagerUrl($controller),
             'filebrowserImageBrowseUrl' => self::getManagerUrl($controller, ['filter'=>'image']),
-            'filebrowserFlashBrowseUrl' => self::getManagerUrl($controller, ['filter'=>'flash']),
+            'filebrowserFlashBrowseUrl' => self::getManagerUrl($controller, ['filter'=>'application/x-shockwave-flash']),
         ], $options);
     }
 
