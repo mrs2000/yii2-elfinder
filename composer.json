@@ -17,6 +17,6 @@
         "psr-4": {"mihaildev\\elfinder\\": ""}
     },
     "require": {
-        "yiisoft/yii2-jui": "*"
+        "yiisoft/yii2-jui": "~2.0.0"
     }
 }
