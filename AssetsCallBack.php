@@ -1,25 +1,23 @@
 <?php
-/**
- * Date: 23.01.14
- * Time: 0:51
- */
 
 namespace mihaildev\elfinder;
 
 
 use yii\web\AssetBundle;
+use yii\web\JqueryAsset;
 
-class AssetsCallBack extends AssetBundle{
-    public $js = array(
+class AssetsCallBack extends AssetBundle
+{
+    public $js = [
         'js/elfinder.callback.js'
-    );
-    public $depends = array(
-        'yii\web\JqueryAsset'
-    );
+    ];
+    public $depends = [
+        JqueryAsset::class
+    ];
 
     public function init()
     {
-        $this->sourcePath = __DIR__."/assets";
+        $this->sourcePath = __DIR__ . '/assets';
         parent::init();
     }
 } 

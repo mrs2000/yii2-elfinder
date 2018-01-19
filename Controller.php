@@ -19,7 +19,7 @@ class Controller extends BaseController
     public $roots = [];
     public $access = ['@'];
     public $bind = [];
-    public $uploadMaxSize = null;
+    public $uploadMaxSize;
     public $commands = [];
 
     private $_options;
@@ -53,7 +53,7 @@ class Controller extends BaseController
             }
 
             if (!isset($root['class'])) {
-                $root['class'] = 'mihaildev\elfinder\LocalPath';
+                $root['class'] = LocalPath::class;
             }
 
             $root = Yii::createObject($root);
@@ -84,7 +84,7 @@ class Controller extends BaseController
 
     public function actionConnect()
     {
-        return $this->renderFile(__DIR__ . "/views/connect.php", ['options' => $this->getOptions()]);
+        return $this->renderFile(__DIR__ . '/views/connect.php', ['options' => $this->getOptions()]);
     }
 
     public function actionManager()

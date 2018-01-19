@@ -1,14 +1,12 @@
 <?php
-/**
- * Date: 23.01.14
- * Time: 22:47
- */
 
 namespace mihaildev\elfinder;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
-class LocalPath extends BasePath{
+class LocalPath extends BasePath
+{
     public $path;
     public $baseUrl = '@web';
     public $basePath = '@webroot';
@@ -21,19 +19,23 @@ class LocalPath extends BasePath{
 
     public $access = ['read' => '*', 'write' => '*'];
 
-    public function getUrl(){
-        return Yii::getAlias($this->baseUrl.'/'.trim($this->path,'/'));
+    public function getUrl()
+    {
+        return Yii::getAlias($this->baseUrl . '/' . trim($this->path, '/'));
     }
 
-    public function getRealPath(){
-        $path = Yii::getAlias($this->basePath.'/'.trim($this->path,'/'));
-        if(!is_dir($path))
-            mkdir($path, 0777, true);
+    public function getRealPath()
+    {
+        $path = Yii::getAlias($this->basePath . '/' . trim($this->path, '/'));
+        if (!is_dir($path) && !mkdir($path) && !is_dir($path)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $path));
+        }
 
         return $path;
     }
 
-    public function getRoot(){
+    public function getRoot()
+    {
         $options['driver'] = $this->driver;
         $options['path'] = $this->getRealPath();
         $options['URL'] = $this->getUrl();
@@ -51,6 +53,6 @@ class LocalPath extends BasePath{
             'locked' => true
         ];
 
-        return \yii\helpers\ArrayHelper::merge($options, $this->options);
+        return ArrayHelper::merge($options, $this->options);
     }
 } 
