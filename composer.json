@@ -17,6 +17,7 @@
         "psr-4": {"mihaildev\\elfinder\\": ""}
     },
     "require": {
-        "yiisoft/yii2-jui": "~2.0.0"
+        "yiisoft/yii2-jui": "~2.0.0",
+        "bower-asset/jquery": "<3.4"
     }
 }
